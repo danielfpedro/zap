@@ -1,0 +1,116 @@
+<ion-view view-title="Encontrar Médicos">
+    <ion-nav-buttons side="right">
+        <!-- <button
+            ng-if="ficha"
+            class="button button-icon ion-ios-close-empty"
+            ng-click="clearCheckboxes()">
+        </button> -->
+        <!-- <button
+            ng-if="ficha"
+            class="button button-icon icon ion-ios-more"
+            ng-click="openModal()">
+        </button> -->
+    </ion-nav-buttons>
+    <ion-content class="custom-bg">
+        <ion-refresher
+            ng-if="!loading"
+            pulling-text="Puxe para atualizar..."
+            on-refresh="doRefresh()">
+        </ion-refresher>
+
+        <my-network-alert></my-network-alert>
+
+        <div class="text-center padding" ng-if="loading">
+            <ion-spinner></ion-spinner>
+        </div>
+        <form name="myForm">
+            <ion-list>
+                <!-- <label class="item item-input item-select">
+                    <div class="input-label">
+                        Tipo 
+                    </div>
+                    <select ng-model="formData.tipo" ng-options="tipo.nome for tipo in tiposMedicos">
+                    </select>
+                </label> -->
+                <label class="item item-radio">
+                    <input type="radio" ng-model="formData.tipo" value="medico" name="tipo">
+                    <div class="item-content">
+                        Médico
+                    </div>
+                    <i class="radio-icon ion-checkmark"></i>
+                </label>
+                <label class="item item-radio">
+                    <input type="radio" ng-model="formData.tipo" value="dentista" name="tipo">
+                    <div class="item-content">
+                        Dentista
+                    </div>
+                    <i class="radio-icon ion-checkmark"></i>
+                </label>
+                <label class="item item-input item-select">
+                    <div class="input-label">
+                        Especialidade
+                    </div>
+                    <select
+                        ng-model="formData.especialidade"
+                        ng-options="especialidade.nome for especialidade in especialidades[formData.tipo]">
+                        <option value="">Selecione:</option>
+                    </select>
+                </label>
+                <label class="item item-input item-select">
+                    <div class="input-label">
+                        Planos 
+                    </div>
+                    <select ng-model="formData.plano" ng-options="plano.nome for plano in planos">
+                        <option value="">Qualquer plano</option>
+                    </select>
+                </label>
+                <div class="item item-toggle">
+                    Usar localização
+                    <label class="toggle toggle-positive">
+                        <input type="checkbox" ng-model="formData.usarLocalizacao">
+                        <div class="track">
+                            <div class="handle"></div>
+                        </div>
+                    </label>
+                </div>
+                <div ng-if="!formData.usarLocalizacao">
+                    <label class="item item-input item-select">
+                        <div class="input-label">
+                            Estado
+                        </div>
+                        <select
+                            ng-model="formData.estado"
+                            ng-options="estado.nome for estado in estados">
+                            <option value="">Qualquer estado</option>
+                            <!-- <option
+                                ng-repeat="(key, estado) in estados"
+                                value="{{key}}">
+                                {{estado.sigla}} - {{estado.nome}}
+                            </option> -->
+                        </select>
+                    </label>
+                    <label class="item item-input item-select" ng-show="formData.estado">
+                        <div class="input-label">
+                            Cidade
+                        </div>
+                        <select ng-model="formData.cidade" ng-options="cidade.nome for cidade in cidades[formData.estado.sigla]">
+                            <option value="">Qualquer cidade</option>
+                        </select>
+                    </label>
+                </div>
+                <div ng-if="formData.usarLocalizacao">
+                    <div class="item range range-positive">
+                        <input type="range" ng-model="formData.distancia" min="5" max="900" value="5">
+                        {{formData.distancia}} Km
+                    </div>
+                </div>
+            </ion-list>
+        </form>
+        <div class="padding">
+            <a href="#/tab/pesquisa-resultado" class="button button-positive button-block">
+                Pesquisar
+            </a>
+        </div>
+
+    </ion-content>
+</ion-view>

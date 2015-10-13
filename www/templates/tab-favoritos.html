@@ -1,0 +1,46 @@
+<ion-view view-title="Favoritos">
+    <ion-nav-buttons side="right">
+        <!-- <button
+            ng-if="ficha"
+            class="button button-icon ion-ios-close-empty"
+            ng-click="clearCheckboxes()">
+        </button> -->
+        <!-- <button
+            ng-if="ficha"
+            class="button button-icon icon ion-ios-more"
+            ng-click="openModal()">
+        </button> -->
+    </ion-nav-buttons>
+
+
+
+    <ion-content class="custom-bg">
+        <ion-refresher
+            ng-if="!loading"
+            pulling-text="Puxe para atualizar..."
+            on-refresh="doRefresh()">
+        </ion-refresher>
+
+        <my-network-alert></my-network-alert>
+
+        <div class="text-center padding" ng-if="loading">
+            <ion-spinner></ion-spinner>
+        </div>
+
+        <ion-list>
+            <a class="item item-avatar" ng-repeat="medico in medicos" href="#/tab/medico-perfil">
+                <img ng-src="img/{{medico.img}}">
+                <span class="item-note">
+                    <span class="icon ion-ios-star"></span>
+                    <span class="icon ion-ios-star"></span>
+                    <span class="icon ion-ios-star"></span>
+                    <span class="icon ion-ios-star"></span>
+                    <span class="icon ion-ios-star-outline"></span>
+                </span>
+                <h2>{{ medico.nome }}</h2>
+                <p>4 km de distância</p>
+            </a>
+        </ion-list>
+
+    </ion-content>
+</ion-view>

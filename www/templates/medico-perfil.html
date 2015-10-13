@@ -1,0 +1,148 @@
+<ion-view view-title="Natalie Dormer">
+    <ion-nav-buttons side="right">
+        <!-- <button
+            ng-if="ficha"
+            class="button button-icon ion-ios-close-empty"
+            ng-click="clearCheckboxes()">
+        </button> -->
+        <!-- <button
+            class="button button-icon icon ion-ios-heart"
+            ng-click="">
+        </button> -->
+    </ion-nav-buttons>
+    <ion-content class="custom-bg">
+        <ion-refresher
+            ng-if="!loading"
+            pulling-text="Puxe para atualizar..."
+            on-refresh="doRefresh()">
+        </ion-refresher>
+
+        <my-network-alert></my-network-alert>
+
+        <!-- <textarea name="" id="" cols="30" rows="10">{{cidades | json}}</textarea> -->
+
+        <div class="row">
+            <div class="col col-offset-33">
+                <div class="text-center">
+                    <span class="label label-default">
+                        Cardiologista
+                    </span>
+                    <span class="label label-default">
+                        Ortopedista
+                    </span>
+                    <span class="label label-default">
+                        Pediatra
+                    </span>
+                </div>
+                <div class="text-center">
+                    <span class="label label-default">
+                        Particular
+                    </span>
+                    <span class="label label-default">
+                        Unimed
+                    </span>
+                </div>    
+            </div>
+        </div>          
+        <div class="row">
+            <div class="col col-20" style="margin-top: -15px;">
+                <img src="img/natalie.jpg" style="border-radius: 100%; width: 100%; height:auto">
+                <div class="text-center">
+                    <span class="icon ion-ios-star"></span>
+                    <span class="icon ion-ios-star"></span>
+                    <span class="icon ion-ios-star"></span>
+                    <span class="icon ion-ios-star"></span>
+                    <span class="icon ion-ios-star-outline"></span>
+                </div>
+            </div>
+            <div class="col col-offset-20 text-right">
+                <button class="button button-positive button-outline button-small">
+                    Avaliar
+                </button>
+                <button class="button button-positive button-outline button-small">
+                    <span class="icon ion-star"></span> Favoritar
+                </button>  
+            </div>
+        </div>
+
+        <div style="background-color: #ecf0f1; color: #FFF; padding: 15px 10px;">
+            <div class="text-center">
+                <img src="img/natalie.jpg" style="border-radius: 100%; width: 70px; height:auto">
+            </div>
+            <div class="text-center" style="color: #111;">
+                <span class="icon ion-ios-star"></span>
+                <span class="icon ion-ios-star"></span>
+                <span class="icon ion-ios-star"></span>
+                <span class="icon ion-ios-star"></span>
+                <span class="icon ion-ios-star-outline"></span>
+            </div>
+            <div class="text-center">
+                <span class="label label-default">
+                    Cardiologista
+                </span>
+                <span class="label label-default">
+                    Ortopedista
+                </span>
+                <span class="label label-default">
+                    Pediatra
+                </span>
+            </div>
+            <div class="text-center">
+                <span class="label label-default">
+                    Particular
+                </span>
+                <span class="label label-default">
+                    Unimed
+                </span>
+            </div>
+        </div>
+        <div class="cards">
+            <div class="row">
+                <div class="col text-right">
+                    <button class="button button-positive button-outline button-small">
+                        Avaliar
+                    </button>
+                    <button class="button button-positive button-outline button-small">
+                        <span class="icon ion-star"></span> Favoritar
+                    </button>
+                </div>
+            </div>
+        </div>
+        <ion-slide-box>
+            <ion-slide ng-repeat="i in [1, 2, 3, 4]">
+                <div class="list card">
+                    <div class="item">
+                        <h2 style="font-size: 16px; font-weight: bold;">Consultório Particular</h2>
+                        <p>Nº 12, rua 213 Conforto, Volta Redonda/RJ</p>
+                    </div>
+                    <div class="item item-divider">
+                        <span class="icon ion-android-time"></span> Horários
+                    </div>
+                    <div class="item">
+                        Seg, Qua e Sex
+                        <span class="item-note">7 às 18h</span>
+                    </div>
+                    <div class="item">
+                        Ter e Qui
+                        <span class="item-note">7 às 14h</span>
+                    </div>
+
+                    <div class="item tabs tabs-secondary tabs-icon-left">
+                        <a class="tab-item" href="#">
+                            <i class="icon ion-android-map"></i>
+                            Mapa
+                        </a>
+                        <a class="tab-item" href="tel:992684512">
+                            <i class="icon ion-android-call"></i>
+                            Telefone
+                        </a>
+                        <a class="tab-item" href="tel:+55-24-992684512">
+                            <i class="icon ion-social-whatsapp"></i>
+                            Whatsapp
+                        </a>
+                    </div>
+                </div>
+            </ion-slide>
+        </ion-slide-box>
+    </ion-content>
+</ion-view>
