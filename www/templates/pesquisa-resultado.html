@@ -11,7 +11,7 @@
             ng-click="openModal()">
         </button> -->
     </ion-nav-buttons>
-    <ion-content class="custom-bg">
+    <ion-content class="">
         <ion-refresher
             ng-if="!loading"
             pulling-text="Puxe para atualizar..."
@@ -24,30 +24,16 @@
             <ion-spinner></ion-spinner>
         </div>
         <div class="padding text-center">
-            <span class="label label-default">
-                Médico
-            </span>
-            <span class="label label-default">
-                Cardiologista
-            </span>
-            <span class="label label-default">
-                23 Km de distância
+            <span class="label label-default" ng-repeat="label in labels">
+                {{label}}
             </span>
         </div>
         <ion-list>
-            <a class="item item-avatar" ng-repeat="medico in medicos" href="#/tab/medico-perfil">
-                <img ng-src="img/{{medico.img}}">
-                <span class="item-note">
-                    <span class="icon ion-ios-star"></span>
-                    <span class="icon ion-ios-star"></span>
-                    <span class="icon ion-ios-star"></span>
-                    <span class="icon ion-ios-star"></span>
-                    <span class="icon ion-ios-star-outline"></span>
-                </span>
-                <h2>{{ medico.nome }}</h2>
-                <p>4 km de distância</p>
-            </a>
+            <medico-list-item
+                ng-repeat="medico in medicos"
+                medico="medico"
+                base-url-perfil="'medico-perfil'">
+            </medico-list-item>
         </ion-list>
-
     </ion-content>
 </ion-view>

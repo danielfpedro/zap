@@ -12,22 +12,6 @@
         </button> -->
     </ion-nav-buttons>
 
-    <div
-        class="tabs tabs-top tabs-striped">
-        <a
-            ng-class=""
-            class="tab-item"
-            ng-click="">
-            Favoritos
-        </a>
-        <a
-            ng-class=""
-            class="tab-item"
-            ng-click="">
-            Histórico
-        </a>
-    </div>
-
     <ion-content class="custom-bg has-tabs-top">
         <ion-refresher
             ng-if="!loading"
@@ -42,18 +26,11 @@
         </div>
 
         <ion-list>
-            <a class="item item-avatar" ng-repeat="medico in medicos" href="#/tab/medico-perfil">
-                <img ng-src="img/{{medico.img}}">
-                <span class="item-note">
-                    <span class="icon ion-ios-star"></span>
-                    <span class="icon ion-ios-star"></span>
-                    <span class="icon ion-ios-star"></span>
-                    <span class="icon ion-ios-star"></span>
-                    <span class="icon ion-ios-star-outline"></span>
-                </span>
-                <h2>{{ medico.nome }}</h2>
-                <p>4 km de distância</p>
-            </a>
+            <medico-list-item
+                ng-repeat="medico in medicos"
+                medico="medico"
+                base-url-perfil="'medico-perfil-historico'">
+            </medico-list-item>
         </ion-list>
 
     </ion-content>

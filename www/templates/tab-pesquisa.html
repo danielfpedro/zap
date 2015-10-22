@@ -23,16 +23,17 @@
         <div class="text-center padding" ng-if="loading">
             <ion-spinner></ion-spinner>
         </div>
-        <form name="myForm">
+        <form name="myForm" ng-submit="pesquisar()">
             <ion-list>
-                <!-- <label class="item item-input item-select">
+                <label class="item item-input item-select">
                     <div class="input-label">
                         Tipo 
                     </div>
-                    <select ng-model="formData.tipo" ng-options="tipo.nome for tipo in tiposMedicos">
+                    <select
+                        ng-model="formData.tipo" ng-options="tipo.nome for tipo in tiposMedicos">
                     </select>
-                </label> -->
-                <label class="item item-radio">
+                </label>
+<!--                 <label class="item item-radio">
                     <input type="radio" ng-model="formData.tipo" value="medico" name="tipo">
                     <div class="item-content">
                         Médico
@@ -45,14 +46,14 @@
                         Dentista
                     </div>
                     <i class="radio-icon ion-checkmark"></i>
-                </label>
+                </label> -->
                 <label class="item item-input item-select">
                     <div class="input-label">
                         Especialidade
                     </div>
                     <select
                         ng-model="formData.especialidade"
-                        ng-options="especialidade.nome for especialidade in especialidades[formData.tipo]">
+                        ng-options="especialidade.nome for especialidade in especialidades[formData.tipo.id]">
                         <option value="">Selecione:</option>
                     </select>
                 </label>
@@ -100,17 +101,23 @@
                 </div>
                 <div ng-if="formData.usarLocalizacao">
                     <div class="item range range-positive">
-                        <input type="range" ng-model="formData.distancia" min="5" max="900" value="5">
+                        <input
+                            type="range"
+                            ng-model="formData.distancia"
+                            min="5"
+                            max="900"
+                            value="5"
+                            step="5">
                         {{formData.distancia}} Km
                     </div>
                 </div>
             </ion-list>
+            <div class="padding">
+                <button type="submit" class="button button-positive button-block">
+                    Pesquisar
+                </button>
+            </div>
         </form>
-        <div class="padding">
-            <a href="#/tab/pesquisa-resultado" class="button button-positive button-block">
-                Pesquisar
-            </a>
-        </div>
 
     </ion-content>
 </ion-view>

@@ -9,7 +9,8 @@ angular.module('starter', [
     'ionic',
     'starter.controllers',
     'starter.services',
-    'angular-storage'
+    'angular-storage',
+    'ngCordova'
 ])
 
 .run(function($ionicPlatform) {
@@ -28,7 +29,9 @@ angular.module('starter', [
     });
 })
 
-.config(function($stateProvider, $urlRouterProvider) {
+.config(function($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
+
+    //$ionicConfigProvider.scrolling.jsScrolling(false);
 
     // Ionic uses AngularUI Router which uses the concept of states
     // Learn more here: https://github.com/angular-ui/ui-router
@@ -45,12 +48,53 @@ angular.module('starter', [
 
     // Each tab has its own nav history stack:
 
+    .state('home', {
+        url: '/home',
+        templateUrl: 'templates/home.html',
+        controller: 'HomeController'
+    })
+    .state('login', {
+        url: '/login',
+        templateUrl: 'templates/login.html',
+        controller: 'LoginController'
+    })
+    .state('registrar', {
+        url: '/registrar',
+        templateUrl: 'templates/registrar.html',
+        controller: 'RegistrarController'
+    })
+    .state('esqueci-minha-senha', {
+        url: '/esqueci-minha-senha',
+        templateUrl: 'templates/esqueci_minha_senha.html',
+        controller: 'EsqueciMinhaSenhaController'
+    })
+
     .state('tab.pesquisa', {
         url: '/pesquisa',
         views: {
             'tab-pesquisa': {
                 templateUrl: 'templates/tab-pesquisa.html',
                 controller: 'PesquisaController'
+            }
+        },
+        resolve: {
+            estados: function(Estados){
+                return Estados.all();
+            },
+            cidades: function(Cidades){
+                return Cidades.all();
+            },
+            planos: function(Planos){
+                return Planos.all();
+            },
+            especialidades: function(Especialidades){
+                return Especialidades.all();
+            },
+            tiposMedicos: function(TiposMedicos){
+                return TiposMedicos.all();
+            },
+            formData: function(Pesquisa){
+                return Pesquisa.getFormData();
             }
         }
     })
@@ -60,6 +104,14 @@ angular.module('starter', [
                 'tab-pesquisa': {
                     templateUrl: 'templates/pesquisa-resultado.html',
                     controller: 'PesquisaResultadoController'
+                }
+            },
+            resolve: {
+                medicos: function(Medicos){
+                    return Medicos.pesquisar();
+                },
+                labels: function(Pesquisa){
+                    return Pesquisa.getLabels();
                 }
             }
         })
@@ -79,8 +131,22 @@ angular.module('starter', [
                 templateUrl: 'templates/tab-favoritos.html',
                 controller: 'FavoritosController'
             }
+        },
+        resolve: {
+            medicos: function(Favoritos){
+                return Favoritos.all();
+            }
         }
     })
+        .state('tab.medico-perfil-favoritos', {
+            url: '/medico-perfil-favoritos',
+            views: {
+                'tab-favoritos': {
+                    templateUrl: 'templates/medico-perfil.html',
+                    controller: 'MedicoPerfilController'
+                }
+            }
+        })
     .state('tab.historico', {
         url: '/historico',
         views: {
@@ -90,6 +156,15 @@ angular.module('starter', [
             }
         }
     })
+        .state('tab.medico-perfil-historico', {
+            url: '/medico-perfil-historico',
+            views: {
+                'tab-historico': {
+                    templateUrl: 'templates/medico-perfil.html',
+                    controller: 'MedicoPerfilController'
+                }
+            }
+        })
     .state('tab.opcoes', {
         url: '/opcoes',
         views: {
@@ -110,6 +185,6 @@ angular.module('starter', [
     });
 
     // if none of the above states are matched, use this as the fallback
-    $urlRouterProvider.otherwise('/tab/pesquisa');
+    $urlRouterProvider.otherwise('/tab/favoritos');
 
 });

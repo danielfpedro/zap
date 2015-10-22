@@ -15,9 +15,28 @@ $royal:                           #886aea !default;
 $dark:                            #444 !default;
 */
 
+$font-family-sans-serif: "Roboto", "Segoe UI", sans-serif !default;
+
 // The path for our ionicons font files, relative to the built CSS in www/css
 $ionicons-font-path: "../lib/ionic/fonts" !default;
+
 
 // Include all of Ionic
 @import "www/lib/ionic/scss/ionic";
 
+.ion-ios-star{
+    color: $energized;
+}
+.label{
+	margin:0;
+    background-color: #ecf0f1;
+    padding: 0!important;
+    padding: 0px 8px!important;
+    border-radius: 3px;
+    display: inline-block;
+    font-size: 11px;
+    color: rgba(#000, .7);
+}
+.custom-bg{
+	background-color: #EEE;
+}

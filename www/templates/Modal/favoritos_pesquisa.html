@@ -1,0 +1,25 @@
+<ion-modal-view>
+    <div class="bar bar-header item-input-inset">
+        <label class="item-input-wrapper">
+            <i class="icon ion-ios-search placeholder-icon"></i>
+            <input type="search" placeholder="Search" ng-model="busca" autofocus>
+        </label>
+        <button class="button button-clear" ng-click="closeModal()">
+            Fechar
+        </button>
+    </div>
+
+    <ion-content class="has-header">
+        <ion-list>
+            <span ng-repeat="(letra, medicos) in medicosByLetra">
+                <span ng-repeat="medico in medicos | filter : busca">
+                    <medico-list-item
+                        ng-click="closeModal()"
+                        medico="medico"
+                        base-url-perfil="'medico-perfil-favoritos'">
+                    </medico-list-item>
+                </span>
+            </span>
+        </ion-list>
+    </ion-content>
+</ion-modal-view>

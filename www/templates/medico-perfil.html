@@ -5,12 +5,17 @@
             class="button button-icon ion-ios-close-empty"
             ng-click="clearCheckboxes()">
         </button> -->
-        <!-- <button
-            class="button button-icon icon ion-ios-heart"
+<!--         <button
+            class="button button-icon icon ion-star"
             ng-click="">
         </button> -->
+        <button
+            class="button button-clear"
+            ng-click="showPopup()">
+            Avaliar
+        </button>
     </ion-nav-buttons>
-    <ion-content class="custom-bg">
+    <ion-content class="">
         <ion-refresher
             ng-if="!loading"
             pulling-text="Puxe para atualizar..."
@@ -20,10 +25,90 @@
         <my-network-alert></my-network-alert>
 
         <!-- <textarea name="" id="" cols="30" rows="10">{{cidades | json}}</textarea> -->
+    
+        <header>
+            <div style="width: 100%; height: 110px; background-image: url(img/capa.jpg); background-size: cover; background-position: bottom center;">
+                
+            </div>
+            <div class="row">
+                <div class="col col-33">
+                    <img
+                        src="img/natalie.jpg"
+                        style="margin-top: -40px; border-radius: 4px; width: 90px; height:auto; border: 4px solid #FFF;z-index: 99">
+                </div>
+                <div class="col" style="margin-left: -20px;">
+                    <div style="font-size: 18px;">Natalie Dormer</div>
+                    <div class="" style="font-size: 13px; color: #95a5a6">
+                        <span class="icon ion-ios-star"></span>
+                        <span class="icon ion-ios-star"></span>
+                        <span class="icon ion-ios-star"></span>
+                        <span class="icon ion-ios-star"></span>
+                        <span class="icon ion-ios-star-outline"></span>
+                    </div>
+                </div>
+                <div class="col col-20 text-right">
+                    <button class="button button-assertive icon ion-heart" style="width: 50px; height: 50px; border-radius: 100%;margin-top: -35px;"></button>
+                </div>
+            </div>
+        </header>
+        <!-- <div
+            style="background-color: #EEE; padding: 20px 10px 35px 10px; background-size: cover; background-position: center center;"
+            class="text-center">
+            <img
+                src="img/natalie.jpg"
+                style="border-radius: 100%; width: 100px; height:auto; border: 3px solid #FFF;z-index: 99">
 
-        <div class="row">
-            <div class="col col-offset-33">
-                <div class="text-center">
+            <div>
+                <span style="color: #222; font-size: 18px; font-weight: regular;">Natalie Dormer</span>        
+            </div>
+            
+            <div class="" style="font-size: 13px; color: #95a5a6">
+                <span class="icon ion-ios-star"></span>
+                <span class="icon ion-ios-star"></span>
+                <span class="icon ion-ios-star"></span>
+                <span class="icon ion-ios-star"></span>
+                <span class="icon ion-ios-star-outline"></span>
+            </div>
+        </div> -->
+
+<!--         <div
+            style="background-color: #EEE; padding: 20px 10px 35px 10px; background-size: cover; background-position: center center;"
+            class="text-center">
+            <img
+                src="img/natalie.jpg"
+                style="border-radius: 100%; width: 100px; height:auto; border: 3px solid #FFF;z-index: 99">
+
+            <div>
+                <span style="color: #222; font-size: 18px; font-weight: regular;">Natalie Dormer</span>        
+            </div>
+            
+            <div class="" style="font-size: 13px; color: #95a5a6">
+                <span class="icon ion-ios-star"></span>
+                <span class="icon ion-ios-star"></span>
+                <span class="icon ion-ios-star"></span>
+                <span class="icon ion-ios-star"></span>
+                <span class="icon ion-ios-star-outline"></span>
+            </div>
+        </div> -->
+
+<!--         <div style="margin-top: -25px;" class="text-center">
+            <button class="button button-stable icon ion-heart" style="width: 50px; height: 50px; border-radius: 100%;"></button>
+        </div> -->
+
+<!--         <div class="row">
+            <div class="col text-right">
+                <button class="button button-positive button-outline">
+                    <span class="icon ion-star"></span>
+                </button>
+                <button class="button button-positive button-outline">
+                    <span class="icon ion-heart"></span>
+                </button>
+            </div>
+        </div> -->
+
+        <div style="">
+            <div class="row text-center">
+                <div class="col">
                     <span class="label label-default">
                         Cardiologista
                     </span>
@@ -34,7 +119,9 @@
                         Pediatra
                     </span>
                 </div>
-                <div class="text-center">
+            </div>
+            <div class="row text-center">
+                <div class="col">
                     <span class="label label-default">
                         Particular
                     </span>
@@ -43,74 +130,40 @@
                     </span>
                 </div>    
             </div>
-        </div>          
-        <div class="row">
-            <div class="col col-20" style="margin-top: -15px;">
-                <img src="img/natalie.jpg" style="border-radius: 100%; width: 100%; height:auto">
-                <div class="text-center">
-                    <span class="icon ion-ios-star"></span>
-                    <span class="icon ion-ios-star"></span>
-                    <span class="icon ion-ios-star"></span>
-                    <span class="icon ion-ios-star"></span>
-                    <span class="icon ion-ios-star-outline"></span>
-                </div>
+        </div>
+
+        <div class="card" ng-repeat="item in [0, 1, 2]">
+            <div class="item">
+                Consultório Vila
+                <p>Nº 12, rua 213 Conforto, Volta Redonda/RJ</p>
             </div>
-            <div class="col col-offset-20 text-right">
-                <button class="button button-positive button-outline button-small">
-                    Avaliar
-                </button>
-                <button class="button button-positive button-outline button-small">
-                    <span class="icon ion-star"></span> Favoritar
-                </button>  
+            <div class="item">
+                Seg. à Qua.
+                <span class="item-note">7 às 18h</span>
+            </div>
+            <div class="item">
+                Qui. à Sab.
+                <span class="item-note">13 às 18h</span>
+            </div>
+            <div class="item tabs tabs-asertive tabs-icon-left">
+                <a class="tab-item" href="#">
+                    <i class="icon ion-android-map"></i>
+                    Mapa
+                </a>
+                <a class="tab-item" href="tel:992684512">
+                    <i class="icon ion-android-call"></i>
+                    Telefone
+                </a>
+                <a class="tab-item" href="tel:+55-24-992684512">
+                    <i class="icon ion-social-whatsapp"></i>
+                    Whatsapp
+                </a>
             </div>
         </div>
 
-        <div style="background-color: #ecf0f1; color: #FFF; padding: 15px 10px;">
-            <div class="text-center">
-                <img src="img/natalie.jpg" style="border-radius: 100%; width: 70px; height:auto">
-            </div>
-            <div class="text-center" style="color: #111;">
-                <span class="icon ion-ios-star"></span>
-                <span class="icon ion-ios-star"></span>
-                <span class="icon ion-ios-star"></span>
-                <span class="icon ion-ios-star"></span>
-                <span class="icon ion-ios-star-outline"></span>
-            </div>
-            <div class="text-center">
-                <span class="label label-default">
-                    Cardiologista
-                </span>
-                <span class="label label-default">
-                    Ortopedista
-                </span>
-                <span class="label label-default">
-                    Pediatra
-                </span>
-            </div>
-            <div class="text-center">
-                <span class="label label-default">
-                    Particular
-                </span>
-                <span class="label label-default">
-                    Unimed
-                </span>
-            </div>
-        </div>
-        <div class="cards">
-            <div class="row">
-                <div class="col text-right">
-                    <button class="button button-positive button-outline button-small">
-                        Avaliar
-                    </button>
-                    <button class="button button-positive button-outline button-small">
-                        <span class="icon ion-star"></span> Favoritar
-                    </button>
-                </div>
-            </div>
-        </div>
-        <ion-slide-box>
-            <ion-slide ng-repeat="i in [1, 2, 3, 4]">
-                <div class="list card">
+        <!-- <ion-slide-box>
+            <ion-slide class="" ng-repeat="i in [1, 2, 3, 4]">
+                <div class="list" style="margin-bottom: 60px;">
                     <div class="item">
                         <h2 style="font-size: 16px; font-weight: bold;">Consultório Particular</h2>
                         <p>Nº 12, rua 213 Conforto, Volta Redonda/RJ</p>
@@ -143,6 +196,126 @@
                     </div>
                 </div>
             </ion-slide>
-        </ion-slide-box>
+        </ion-slide-box> -->
+
+<!--         <ion-list>
+            <a class="item item-icon-left item-icon-right" href="#" ng-repeat="item in [0, 1]">
+                <i class="icon ion-ios-location-outline"></i>
+                Consultório Vila
+                <p>Rua 223, Nº94 Conforto Volta Redonda/RJ</p>
+                <i class="icon ion-ios-arrow-forward"></i>
+            </a>
+        </ion-list> -->
+
+<!--         <div class="row" style="margin-top: 5px;">
+            <div class="col col-offset-20 col-bottom text-right">
+                <button class="button button-positive button-outline button-small">
+                    <span class="icon ion-star"></span>
+                </button>
+                <button class="button button-positive button-outline button-small">
+                    <span class="icon ion-heart"></span>
+                </button>
+            </div>
+        </div> -->
+
+        <!-- <div
+            class=""
+            style=" background-color: #EEE;height: 110px;background-image: url(img/capa.jpg); background-size: cover; background-position: center bottom">
+
+            <div style="background-color: rgba(142, 68, 173, .0); width: 100%; height: 100%;"></div>
+
+        </div>
+        <div style="background-color: #fff;">
+            <div class="row" style="margin-top: 5px;">
+                <div class="col col-offset-20 col-bottom text-right">
+                    <button class="button button-positive button-outline button-small">
+                        <span class="icon ion-star"></span>
+                    </button>
+                    <button class="button button-positive button-outline button-small">
+                        <span class="icon ion-heart"></span>
+                    </button>
+                </div>
+            </div>
+
+            <div style="margin-left: 8px;margin-top: -95px;">
+                <img
+                    src="img/natalie.jpg"
+                    style="border-radius: 4px; width: 95px; height:auto; border: 4px solid #FFF;">
+            </div>
+
+            <div class="row" style="margin-top: -15px">
+                <div class="col">
+                    <span style="font-size: 18px; font-weight: bold;">Natalie Dormer</span>
+                    <div class="" style="font-size: 13px; color: #95a5a6">
+                        <span class="icon ion-ios-star"></span>
+                        <span class="icon ion-ios-star"></span>
+                        <span class="icon ion-ios-star"></span>
+                        <span class="icon ion-ios-star"></span>
+                        <span class="icon ion-ios-star-outline"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div style="background-color: #fff;" class="">
+            <div style="margin-top: 10px;">
+                <div class="row">
+                    <div class="col col-100 text-center">
+                        <span class="label label-default">
+                            Cardiologista
+                        </span>
+                        <span class="label label-default">
+                            Ortopedista
+                        </span>
+                        <span class="label label-default">
+                            Pediatra
+                        </span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col col-100 text-center">
+                        <span class="label label-default">
+                            Particular
+                        </span>
+                        <span class="label label-default">
+                            Unimed
+                        </span>
+                    </div>    
+                </div> 
+            </div>
+        </div> -->
+        <!-- <br>
+        <div style="background-color: #fff;">
+        <div class="list" ng-repeat="i in [1, 2, 3, 4]">
+            <div class="item">
+                <h2 style="font-size: 16px; font-weight: bold;">Consultório Particular</h2>
+                <p>Nº 12, rua 213 Conforto, Volta Redonda/RJ</p>
+            </div>
+            <div class="item item-divider">
+                <span class="icon ion-android-time"></span> Horários
+            </div>
+            <div class="item">
+                Seg, Qua e Sex
+                <span class="item-note">7 às 18h</span>
+            </div>
+            <div class="item">
+                Ter e Qui
+                <span class="item-note">7 às 14h</span>
+            </div>
+
+            <div class="item tabs tabs-secondary tabs-icon-left">
+                <a class="tab-item" href="#">
+                    <i class="icon ion-android-map"></i>
+                    Mapa
+                </a>
+                <a class="tab-item" href="tel:992684512">
+                    <i class="icon ion-android-call"></i>
+                    Telefone
+                </a>
+                <a class="tab-item" href="tel:+55-24-992684512">
+                    <i class="icon ion-social-whatsapp"></i>
+                    Whatsapp
+                </a>
+            </div>
+        </div> -->
     </ion-content>
 </ion-view>

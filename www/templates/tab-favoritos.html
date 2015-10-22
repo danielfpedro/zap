@@ -1,20 +1,13 @@
 <ion-view view-title="Favoritos">
     <ion-nav-buttons side="right">
-        <!-- <button
-            ng-if="ficha"
-            class="button button-icon ion-ios-close-empty"
-            ng-click="clearCheckboxes()">
-        </button> -->
-        <!-- <button
-            ng-if="ficha"
-            class="button button-icon icon ion-ios-more"
+        <button
+            button="type"
+            class="button button-icon ion-search"
             ng-click="openModal()">
-        </button> -->
+        </button>
     </ion-nav-buttons>
 
-
-
-    <ion-content class="custom-bg">
+    <ion-content class="custom-bg ">
         <ion-refresher
             ng-if="!loading"
             pulling-text="Puxe para atualizar..."
@@ -28,18 +21,17 @@
         </div>
 
         <ion-list>
-            <a class="item item-avatar" ng-repeat="medico in medicos" href="#/tab/medico-perfil">
-                <img ng-src="img/{{medico.img}}">
-                <span class="item-note">
-                    <span class="icon ion-ios-star"></span>
-                    <span class="icon ion-ios-star"></span>
-                    <span class="icon ion-ios-star"></span>
-                    <span class="icon ion-ios-star"></span>
-                    <span class="icon ion-ios-star-outline"></span>
+            <span ng-repeat="(letra, medicos) in medicosByLetra">
+                <ion-item class="item-divider" ng-show="medicos">
+                    {{letra}}
+                </ion-item>
+                <span ng-repeat="medico in medicos">
+                    <medico-list-item
+                        medico="medico"
+                        base-url-perfil="'medico-perfil-favoritos'">
+                    </medico-list-item>
                 </span>
-                <h2>{{ medico.nome }}</h2>
-                <p>4 km de distância</p>
-            </a>
+            </span>
         </ion-list>
 
     </ion-content>
